@@ -1,0 +1,23 @@
+digraph "ordermanagement" {
+  node [shape="box",style="rounded",fontname="Helvetica",fontsize="14"]
+  edge [fontsize="10",fontname="Helvetica"]
+
+  // Node Definitions:
+  "com.hvg.ordermanagement:order-application-service:jar:compile"[label=<order-application-service>]
+  "com.hvg.ordermanagement:order-domain-core:jar:compile"[label=<order-domain-core>]
+  "com.hvg.ordermanagement:order-application:jar:compile"[label=<order-application>]
+  "com.hvg.ordermanagement:order-dataaccess:jar:compile"[label=<order-dataaccess>]
+  "com.hvg.ordermanagement:order-messaging:jar:compile"[label=<order-messaging>]
+  "com.hvg.ordermanagement:order-container:jar:compile"[label=<order-container>]
+
+  // Edge Definitions:
+  "com.hvg.ordermanagement:order-application-service:jar:compile" -> "com.hvg.ordermanagement:order-domain-core:jar:compile"
+  "com.hvg.ordermanagement:order-application:jar:compile" -> "com.hvg.ordermanagement:order-application-service:jar:compile"
+  "com.hvg.ordermanagement:order-dataaccess:jar:compile" -> "com.hvg.ordermanagement:order-application-service:jar:compile"
+  "com.hvg.ordermanagement:order-messaging:jar:compile" -> "com.hvg.ordermanagement:order-application-service:jar:compile"
+  "com.hvg.ordermanagement:order-container:jar:compile" -> "com.hvg.ordermanagement:order-domain-core:jar:compile"
+  "com.hvg.ordermanagement:order-container:jar:compile" -> "com.hvg.ordermanagement:order-application-service:jar:compile"
+  "com.hvg.ordermanagement:order-container:jar:compile" -> "com.hvg.ordermanagement:order-application:jar:compile"
+  "com.hvg.ordermanagement:order-container:jar:compile" -> "com.hvg.ordermanagement:order-dataaccess:jar:compile"
+  "com.hvg.ordermanagement:order-container:jar:compile" -> "com.hvg.ordermanagement:order-messaging:jar:compile"
+}
